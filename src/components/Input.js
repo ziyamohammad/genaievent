@@ -119,6 +119,8 @@ const Input = () => {
                    <option value="other">CIVIL</option>
                     <option value="other">MECHANICAL</option>
                     <option value="other">AIML</option>
+                       <option value="other">ECE</option>
+                    <option value="other">CS</option>
                     
             </select>
 
