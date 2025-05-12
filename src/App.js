@@ -10,7 +10,7 @@ function App() {
     <Router>
     <div className="Main">
       <div className="logo">
-        <img src="./logo.png" alt="/" height="100%" width="100%"/>
+        <img src="./new logo.png" alt="/" height="100%" width="100%"/>
       </div>
       <h1>Trained & Tuned'25</h1>
       <Routes>

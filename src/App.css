@@ -42,7 +42,9 @@ margin-bottom:40px;
     color: aliceblue;
     padding: 50px;
     background-color:#0E000C;
-  border: 3px solid grey;
+  border: 3px solid rgba(128, 128, 128,0.5);
+  border-radius: 12px;
+  
   
   
   }
@@ -107,6 +109,8 @@ margin-bottom:40px;
    
   .verification{
     padding: 10px;
+    border: 3px solid rgba(128, 128, 128,0.5);
+  border-radius: 12px;
     top: 15rem;
     left: 42rem;
    display: flex;
@@ -117,7 +121,7 @@ margin-bottom:40px;
     min-height: 600px;
     max-height: auto;
     background-color: rgb(8, 6, 28);
-  border: 3px solid grey;
+ 
   }
   .verihead{
     color: aliceblue;

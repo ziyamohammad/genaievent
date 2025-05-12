@@ -99,7 +99,7 @@ const Input = () => {
 
         <div className="input">
           <label htmlFor="branch">Branch</label>
-          <input
+          <select
             type="text"
             id="branch"
             name="branch"
@@ -107,7 +107,21 @@ const Input = () => {
             onChange={(e) => setBranch(e.target.value)}
             onBlur={(e) => validateField("branch", e.target.value)}
             required
-          />
+          >
+             <option value="" disabled>Select Branch</option>
+              <option value="male">CSIT</option>
+              <option value="female">CSE</option>
+              <option value="other">CSE(AIML)</option>
+               <option value="other">CSE(DS)</option>
+                <option value="other">CSE(HINDI)</option>
+                 <option value="other">IT</option>
+                  <option value="other">EN</option>
+                   <option value="other">CIVIL</option>
+                    <option value="other">MECHANICAL</option>
+                    
+            </select>
+
+
           {errors.branch && <small className="error">{errors.branch}</small>}
         </div>
 
