@@ -257,10 +257,10 @@ margin-bottom:40px;
     }
     .bottom-right {
         position: absolute;
-        top:820px;
+        top:750px;
         right: 0%;
         z-index: 1;
-        width: 130px;
+        width: 100px;
     }
 .top-left {
     position: absolute;
@@ -321,10 +321,10 @@ margin-bottom:40px;
     }
 .bottom-right {
         position: absolute;
-        top:820px;
+        top:750px;
         right: 0%;
         z-index: 1;
-        width: 127px;
+        width: 100px;
     }
 .top-left {
         position: absolute;
