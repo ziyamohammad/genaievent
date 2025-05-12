@@ -257,7 +257,7 @@ margin-bottom:40px;
     }
     .bottom-right {
         position: absolute;
-        top:750px;
+        bottom:-70px;
         right: 0%;
         z-index: 1;
         width: 100px;
@@ -321,10 +321,10 @@ margin-bottom:40px;
     }
 .bottom-right {
         position: absolute;
-        top:750px;
+        bottom:-300px;
         right: 0%;
         z-index: 1;
-        width: 10px;
+        width: 100px;
     }
 .top-left {
         position: absolute;
@@ -396,10 +396,10 @@ margin-bottom:40px;
   @media screen and (max-width:360px) {
     .bottom-right {
         position: absolute;
-        top:600px;
+        bottom:-300px;
         right: 0%;
         z-index: 1;
-        width: 10px;
+        width: 100px;
     }
 .verification{
     width: 95%;
