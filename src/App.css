@@ -394,6 +394,13 @@ margin-bottom:40px;
   }
 
   @media screen and (max-width:360px) {
+    .bottom-right {
+        position: absolute;
+        top:600px;
+        right: 0%;
+        z-index: 1;
+        width: 80px;
+    }
 .verification{
     width: 95%;
     min-height: 380px;
