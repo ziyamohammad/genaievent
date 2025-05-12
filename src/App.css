@@ -7,7 +7,7 @@
 }
 .Main{
   width:100vw;
-  min-height:100vh;
+  min-height:180vh;
   max-height: auto;
   background: linear-gradient(to top right, #9E4084, #0E0A0B, #291440, #374E9C);
   display:flex;
