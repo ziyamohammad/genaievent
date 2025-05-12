@@ -32,7 +32,7 @@
 }
 .bottom-right {
     position: absolute;
-    bottom: -400px;
+    bottom: -50%;
     right: 0%;
     z-index: 1;
     width: 150px;
@@ -60,21 +60,21 @@
 }
 .bottom-left{
    position: absolute;
-  top: 810px;
+  top:100%;
   left: 0%;
   z-index: 1;
   width: 170px;
 }
 .bottom-left-ball {
     position: absolute;
-    top: 837px;
+    top:103%;
     left: 84px;
     z-index: 1;
     width: 106px;
 }
 .bottom-left-ball2 {
     position: absolute;
-    top: 824px;
+    top:101%;
     left: 0%;
     z-index: 1;
     width: 153px;
@@ -257,7 +257,7 @@ margin-bottom:40px;
     }
     .bottom-right {
         position: absolute;
-        bottom:-70px;
+        bottom:-50%;
         right: 0%;
         z-index: 1;
         width: 100px;
@@ -285,21 +285,21 @@ margin-bottom:40px;
 }
 .bottom-left {
         position: absolute;
-        top: 810px;
+        top:100%;
         left: 0%;
         z-index: 1;
         width: 110px;
     }
 .bottom-left-ball {
         position: absolute;
-        top: 809px;
+        top: 103%;
         left: 35px;
         z-index: 1;
         width: 65px;
     }
 .bottom-left-ball2 {
         position: absolute;
-        top: 824px;
+        top:101%;
         left: 0%;
         z-index: 1;
         width: 83px;
@@ -321,7 +321,7 @@ margin-bottom:40px;
     }
 .bottom-right {
         position: absolute;
-        bottom:-300px;
+        bottom:-50%;
         right: 0%;
         z-index: 1;
         width: 100px;
@@ -349,21 +349,21 @@ margin-bottom:40px;
     }
 .bottom-left {
         position: absolute;
-        top: 810px;
+        top:100%;
         left: 0%;
         z-index: 1;
         width: 110px;
     }
 .bottom-left-ball {
         position: absolute;
-        top: 809px;
+        top:103%;
         left: 35px;
         z-index: 1;
         width: 65px;
     }
 .bottom-left-ball2 {
         position: absolute;
-        top: 824px;
+        top:101%;
         left: 0%;
         z-index: 1;
         width: 83px;
@@ -396,7 +396,7 @@ margin-bottom:40px;
   @media screen and (max-width:360px) {
     .bottom-right {
         position: absolute;
-        bottom:-300px;
+        bottom:-50%;
         right: 0%;
         z-index: 1;
         width: 100px;
