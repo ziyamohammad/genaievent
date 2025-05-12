@@ -14,7 +14,7 @@ function App() {
       <h1>Trained & Tuned'25</h1>
       <Routes>
       <Route path ="/" element={<Input/>}/>
-       <Route path ="verification" element={ <Verification/>}/>
+       <Route path ="/Verify" element={ <Verification/>}/>
      
       </Routes>
     

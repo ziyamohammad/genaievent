@@ -133,7 +133,7 @@ const Input = () => {
         </div>
 
         
-        <Link to="/">
+        <Link to="/Verify">
           <button
             type="submit"
             className="verifybtn input"
