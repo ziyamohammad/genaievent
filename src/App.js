@@ -1,24 +1,25 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Input from './components/Input';
+import { BrowserRouter as Router,Route,Routes } from 'react-router';
+import Verification from './components/Verification';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Router>
+    <div className="Main">
+      <div className="logo">
+        <img src="./logo.png" alt="/" height="100%" width="100%"/>
+      </div>
+      <h1>Trained & Tuned'25</h1>
+      <Routes>
+      <Route path ="/" element={<Input/>}/>
+       <Route path ="verification" element={ <Verification/>}/>
+     
+      </Routes>
+    
     </div>
+    </Router>
   );
 }
 

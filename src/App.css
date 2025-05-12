@@ -1,38 +1,241 @@
-.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.Main{
+  width:100vw;
+  min-height:100vh;
+  max-height: auto;
+  background: linear-gradient(to top right, #9E4084, #0E0A0B, #291440, #374E9C);
+  display:flex;
+  flex-direction:column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding:30px;
+
+}
+.logo{
+ 
+  width:200px;
+  margin-bottom:40px;
+  
+}
+h1{
+font-family: "League Spartan", sans-serif;
+font-weight: 600;
+font-size: 45px;
+text-align: center;
+vertical-align: middle;
+color:#FFFFFF;
+margin-bottom:40px;
+
 }
 
-.App-link {
-  color: #61dafb;
-}
+/* Input css */
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+ .inputcontainer{
+  
+    max-height: auto;
+    width: 500px;
+    color: aliceblue;
+    padding: 50px;
+    background-color:#0E000C;
+  border: 3px solid grey;
+  
+  
   }
-  to {
-    transform: rotate(360deg);
+  .input{
+    margin-top: 35px;
+    font-family: "League Spartan", sans-serif;
+    font-weight: 600;
+    height: 72px;
+    width:100%;
   }
+  input,select{
+    color: aliceblue;
+    width: 100%;
+  height: 40.8px;
+  border: 0.93px solid grey;
+  border-radius: 6.14px;
+  background-color: rgba(255, 255, 255, 0.059);
+  }
+  .verifybtn{
+    color: aliceblue;
+    line-height: 21px;
+    font-size: 21px;
+    width: 100%;
+  height: 53px;
+  border: 0.93px solid grey;
+  border-radius: 6.14px;
+  background: linear-gradient(to bottom left,#0E0A0B,#291440,#9E4084);
+  }
+  .input1{
+    margin-top: 35px;
+    width:100%;
+    height: 72px;
+    display: flex;
+    justify-content: space-between;
+  }
+  label{
+    top: 0px;
+    display: block;
+    height: 30px;
+  }
+  .gender {
+    width:50%;
+    margin-right:20px;
+   
+  }
+  .scholar{
+    width:50%;
+  }
+  option{
+    color: black;
+  }
+  .name{
+    font-family: "League Spartan", sans-serif;
+    font-weight: 600;
+    height: 72px;
+    width: 100%;
+  }
+
+
+  /* verification css */
+
+   
+  .verification{
+    padding: 10px;
+    top: 15rem;
+    left: 42rem;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   align-items: center;
+    width: 500px;
+    min-height: 600px;
+    max-height: auto;
+    background-color: rgb(8, 6, 28);
+  border: 3px solid grey;
+  }
+  .verihead{
+    color: aliceblue;
+    font-family: "League Spartan", sans-serif;
+    font-weight: 600;
+    text-align: center;
+    font-size: 40px;
+    margin-top: 5%;
+    letter-spacing: 1%;
+  }
+  .para{
+    color: rgb(255, 255, 255);
+    width: 90%;
+    height: 64px;
+    margin-top: 8%;
+    opacity: 60%;
+    font-family: "League Spartan", sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  text-align: center;
+  }
+  .para span{
+    text-decoration: underline;
+  }
+  .otp{
+    height: 78.1px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15%;
+  }
+  .no{
+    background-color:rgba(255, 255, 255, 0.02) ;
+    width: 15%;
+    height: 80%;
+    border: 1.1px solid rgba(255, 255, 255, 0.302);
+    border-radius: 7.28px;
+    text-align: center;
+    font-size: 24px;
+  }
+  .error {
+    color: red;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+  }
+  
+  .submitbtn{
+    margin-top:10%;
+    width: 90%;
+    height: 53px;
+    border-radius: 8px;
+    color: #FFFFFF;
+     font-family: "League Spartan", sans-serif;
+ background: linear-gradient(to bottom left,#0E0A0B,#291440,#9E4084);
+  }
+  .resend{
+    color: aliceblue;
+    padding: 5%;
+    font-weight: 500;
+    font-size: 20px;
+    text-decoration:underline;
+  }
+  @media screen and (max-width:700px) {
+.inputcontainer{
+    width: 80%;
 }
+.verification{
+    width: 90%;
+  }
+  }
+ @media screen and (max-width:450px) {
+.verification{
+    width: 90%;
+    min-height: 400px;
+  }
+  .inputcontainer{
+    width: 90%;
+    padding: 20px;
+}
+  h1{
+    font-size: 35px;
+  }
+.verihead{
+  font-size: 30px;
+}
+.para{
+   font-size: 19px;
+}
+.no{
+  height: 50%;
+}
+.resend{
+  font-size: 15px;
+}
+  }
+
+  @media screen and (max-width:360px) {
+.verification{
+    width: 95%;
+    min-height: 380px;
+  }
+  .inputcontainer{
+    width: 95%;
+    padding: 20px;
+}
+    h1{
+    font-size: 26px;
+  }
+.verihead{
+  font-size: 23px;
+}
+.para{
+   font-size: 15px;
+}
+.no{
+  height: 50%;
+}
+.resend{
+  font-size: 15px;
+}
+  }
