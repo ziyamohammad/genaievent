@@ -3,6 +3,7 @@ import './App.css';
 import Input from './components/Input';
 import { BrowserRouter as Router,Route,Routes } from 'react-router';
 import Verification from './components/Verification';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
        <Route path ="/Verify" element={ <Verification/>}/>
      
       </Routes>
+       <ToastContainer position="top-right" autoClose={3000} />
+
     
     </div>
     </Router>
