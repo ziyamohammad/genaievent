@@ -57,15 +57,14 @@ const Input = () => {
 
        
         <div className="input">
-          <label htmlFor="domain">Domain</label>
-          <select name="domain" required>
-            <option value="" disabled selected>
-              
-            </option>
-            <option value="apple">Web Developer</option>
-            <option value="banana">Designer</option>
-            <option value="cherry">Machine Learning</option>
-          </select>
+          <label htmlFor="domain">University Roll no.</label>
+           <input
+            type="text"
+            id="branch"
+            name="branch"
+            required
+            onBlur={(e) => validateField("branch", e.target.value)}
+          />
         </div>
 
        
