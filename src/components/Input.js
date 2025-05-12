@@ -109,18 +109,18 @@ const Input = () => {
             required
           >
              <option value="" disabled>Select Branch</option>
-              <option value="male">CSIT</option>
-              <option value="female">CSE</option>
-              <option value="other">CSE(AIML)</option>
-               <option value="other">CSE(DS)</option>
-                <option value="other">CSE(HINDI)</option>
-                 <option value="other">IT</option>
-                  <option value="other">EN</option>
-                   <option value="other">CIVIL</option>
-                    <option value="other">MECHANICAL</option>
-                    <option value="other">AIML</option>
-                       <option value="other">ECE</option>
-                    <option value="other">CS</option>
+              <option value="CSIT">CSIT</option>
+              <option value="CSE">CSE</option>
+              <option value="CSE(AIML)">CSE(AIML)</option>
+               <option value="CSE(DS)">CSE(DS)</option>
+                <option value="CSE(HINDI)">CSE(HINDI)</option>
+                 <option value="IT">IT</option>
+                  <option value="EN">EN</option>
+                   <option value="CIVIL">CIVIL</option>
+                    <option value="MECHANICAL">MECHANICAL</option>
+                    <option value="AIML">AIML</option>
+                       <option value="ECE">ECE</option>
+                    <option value="CS">CS</option>
                     
             </select>
 
