@@ -257,7 +257,7 @@ margin-bottom:40px;
     }
     .bottom-right {
         position: absolute;
-        bottom: -390px;
+        top:820px;
         right: 0%;
         z-index: 1;
         width: 130px;
@@ -321,7 +321,7 @@ margin-bottom:40px;
     }
 .bottom-right {
         position: absolute;
-        bottom: -352px;
+        top:820px;
         right: 0%;
         z-index: 1;
         width: 127px;
