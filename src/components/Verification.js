@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Verification = () => {
+const Verification = ({useremail}) => {
   const [otp, setOtp] = useState(Array(4).fill(""));
 
   const handleChange = (value, index) => {
@@ -50,7 +50,7 @@ const Verification = () => {
       <ToastContainer />
       <div className="verihead">Verification Code</div>
       <div className="para">
-        We have sent a verification code to your college id <span>akgec.ac@akgec.in</span>✏
+        We have sent a verification code to your college id <span>{useremail}@akgec.in</span>✏
       </div>
       <div className="otp">
         {otp.map((digit, index) => (

@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-const Input = () => {
+const Input = ({handleevent}) => {
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
   
-  // Individual field states
+  
   const [name, setName] = useState('');
   const [branch, setBranch] = useState('');
   const [univRoll, setUnivRoll] = useState('');
@@ -16,7 +16,7 @@ const Input = () => {
   const [email, setEmail] = useState('');
   const [mobile, setMobile] = useState('');
 
-  // Collect all in an array (if storing multiple submissions)
+  
   const [formEntries, setFormEntries] = useState([]);
 
   const regexPatterns = {
@@ -27,17 +27,34 @@ const Input = () => {
     studentNumber: /^[0-9]{5,7}$/,
   };
 
-  const validateField = (field, value) => {
-    const pattern = regexPatterns[field];
-    if (pattern && !pattern.test(value)) {
-      setErrors((prev) => ({ ...prev, [field]: `Invalid ${field}` }));
+ const validateField = (field, value) => {
+  const pattern = regexPatterns[field];
+  if (pattern && !pattern.test(value)) {
+    setErrors((prev) => ({ ...prev, [field]: `Invalid ${field}` }));
+  } else {
+    setErrors((prev) => {
+      const { [field]: _, ...rest } = prev;
+      return rest;
+    });
+  }
+
+  
+  if ((field === "email" || field === "studentNumber") && email && studentNumber) {
+    const emailMatch = email.match(/\d+/g); 
+    const numberInEmail = emailMatch ? emailMatch.join('') : '';
+    if (!email.includes(studentNumber) || !numberInEmail.includes(studentNumber)) {
+      setErrors((prev) => ({
+        ...prev,
+        email: "Student number does not match with email ID",
+      }));
     } else {
       setErrors((prev) => {
-        const { [field]: _, ...rest } = prev;
+        const { email: _, ...rest } = prev;
         return rest;
       });
     }
-  };
+  }
+};
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -49,6 +66,12 @@ const Input = () => {
       toast.error("Please fill all the required fields.");
       return;
     }
+    if (!email.includes(studentNumber)) {
+  toast.error("Student number must match the number in email ID.");
+  return;
+    }
+
+    handleevent(email);
 
 
     // Final check before adding
