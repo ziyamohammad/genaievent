@@ -198,7 +198,7 @@ const Input = ({handleevent}) => {
             >
               <option value="" disabled>Select Scholar Type</option>
               <option value="day">Day Scholar</option>
-              <option value="hostel">Hostler</option>
+              <option value="hostel">Hosteller</option>
             </select>
           </div>
         </div>
