@@ -31,12 +31,20 @@ const Input = ({handleevent}) => {
   const pattern = regexPatterns[field];
   if (pattern && !pattern.test(value)) {
     setErrors((prev) => ({ ...prev, [field]: `Invalid ${field}` }));
-  } else {
-    setErrors((prev) => {
-      const { [field]: _, ...rest } = prev;
-      return rest;
-    });
+    return;
   }
+
+
+  if (field === "studentNumber" && !(value.startsWith("23") || value.startsWith("24"))) {
+    setErrors((prev) => ({ ...prev, studentNumber: "Student number must start with 23 or 24" }));
+    return;
+  }
+
+ 
+  setErrors((prev) => {
+    const { [field]: _, ...rest } = prev;
+    return rest;
+  });
 
   
   if ((field === "email" || field === "studentNumber") && email && studentNumber) {
@@ -55,6 +63,7 @@ const Input = ({handleevent}) => {
     }
   }
 };
+
 
   const handleClick = (e) => {
     e.preventDefault();

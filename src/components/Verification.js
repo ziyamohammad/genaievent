@@ -50,7 +50,7 @@ const Verification = ({useremail}) => {
       <ToastContainer />
       <div className="verihead">Verification Code</div>
       <div className="para">
-        We have sent a verification code to your college id <span>{useremail}@akgec.in</span>✏
+        We have sent a verification code to your college id <span>{useremail}</span>✏
       </div>
       <div className="otp">
         {otp.map((digit, index) => (
