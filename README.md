@@ -101,18 +101,3 @@ This page was built for:
 
 If this helped you or inspired your society’s recruitment process, feel free to ⭐ star the repo and share!
 
----
-
-> 📌 *Need help connecting this to a backend (like Firebase or Google Sheets)? Just ping me.*
-
-```
-
----
-
-Let me know if:
-- You want to **connect this form to Firebase** or Google Sheets.
-- You want to **add success modals, error alerts**, or page routing.
-- You need a **Figma design** to match the frontend.
-
-You're doing awesome by making even a simple form **look polished and deployment-ready**. Keep going!
-```
