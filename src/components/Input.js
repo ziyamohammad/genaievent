@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -65,7 +66,7 @@ const Input = ({handleevent}) => {
 };
 
 
-  const handleClick = (e) => {
+  const handleClick = async(e) => {
     e.preventDefault();
 
       if (
@@ -86,16 +87,20 @@ const Input = ({handleevent}) => {
     // Final check before adding
     if (Object.keys(errors).length === 0) {
       const formData = {
-        name,
-        branch,
-        univRoll,
-        gender,
-        scholarType,
-        studentNumber,
-        email,
-        mobile,
+        fullName:name,
+        branch:branch,
+        rollNumber:univRoll,
+        gender:gender,
+        scholar:scholarType,
+        studentNumber:studentNumber,
+        studentEmail:email,
+        mobileNumber:mobile,
       };
       setFormEntries((prev) => [...prev, formData]);
+      const response = await axios.post(`https://registeration-form-42je.onrender.com/api/v1/student/register`,
+        formData
+      );
+      console.log(response,response.data)
        toast.success("Form submitted successfully! 🎉");
        navigate("/Verify");
        

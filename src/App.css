@@ -311,6 +311,11 @@ margin-bottom:40px;
     width: 90%;
   }
   }
+  @media screen and (max-width:500px){
+    .query{
+      font-size:2px;
+    }
+  }
  @media screen and (max-width:450px) {
   .top-right {
         position: absolute;
