@@ -76,7 +76,7 @@ const [captchaToken, setCaptchaToken] = useState('');
 
       if (
       !name || !branch || !univRoll || !gender || !scholarType ||
-      !studentNumber || !email || !mobile || !captchaToken
+      !studentNumber || !email || !mobile
     ) {
       toast.error("Please fill all the required fields.");
       return;
