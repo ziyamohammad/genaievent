@@ -101,7 +101,9 @@ const [captchaToken, setCaptchaToken] = useState('');
         studentEmail:email,
         mobileNumber:mobile,
       };
-
+       for (let pair of formData.entries()) {
+      console.log(`${pair[0]}:`, pair[1]);
+    }
      
 
       setFormEntries((prev) => [...prev, formData]);
