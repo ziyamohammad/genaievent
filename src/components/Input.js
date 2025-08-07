@@ -105,7 +105,7 @@ const [captchaToken, setCaptchaToken] = useState('');
      
 
       setFormEntries((prev) => [...prev, formData]);
-      const response = await axios.post(`https://registeration-form-42je.onrender.com/api/v1/student/register`,
+      const response = await axios.post(`https://registeration-form-90be.onrender.com/api/v1/student/register`,
         formData
       );
       console.log(response,response.data)
@@ -113,7 +113,7 @@ const [captchaToken, setCaptchaToken] = useState('');
        navigate("/Verify");
        
 
-      // Optional: Reset fields
+      
       setName('');
       setBranch('');
       setUnivRoll('');
