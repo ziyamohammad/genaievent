@@ -5,6 +5,12 @@
   padding:0;
   box-sizing: border-box;
 }
+.handleCaptcha{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+
+}
 .Main{
   width:100vw;
   min-height:180vh;

@@ -1,13 +1,13 @@
 import axios from 'axios';
-import { useState } from 'react';
+
+import { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 const Input = ({handleevent}) => {
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
-  
-  
   const [name, setName] = useState('');
   const [branch, setBranch] = useState('');
   const [univRoll, setUnivRoll] = useState('');
@@ -16,10 +16,14 @@ const Input = ({handleevent}) => {
   const [studentNumber, setStudentNumber] = useState('');
   const [email, setEmail] = useState('');
   const [mobile, setMobile] = useState('');
-
+ const [captchaSize, setCaptchaSize] = useState('normal');
   
   const [formEntries, setFormEntries] = useState([]);
-
+const [captchaToken, setCaptchaToken] = useState('');
+     const handleCaptcha = (token) => {
+    console.log("Captcha token:", token);
+    setCaptchaToken(token);
+  };
   const regexPatterns = {
     name: /^[A-Za-z\s]{3,30}$/, 
     branch: /^[A-Za-z\s]+$/,
@@ -67,11 +71,12 @@ const Input = ({handleevent}) => {
 
 
   const handleClick = async(e) => {
+    
     e.preventDefault();
 
       if (
       !name || !branch || !univRoll || !gender || !scholarType ||
-      !studentNumber || !email || !mobile
+      !studentNumber || !email || !mobile || !captchaToken
     ) {
       toast.error("Please fill all the required fields.");
       return;
@@ -96,6 +101,9 @@ const Input = ({handleevent}) => {
         studentEmail:email,
         mobileNumber:mobile,
       };
+
+     
+
       setFormEntries((prev) => [...prev, formData]);
       const response = await axios.post(`https://registeration-form-42je.onrender.com/api/v1/student/register`,
         formData
@@ -248,7 +256,13 @@ const Input = ({handleevent}) => {
           />
           {errors.mobile && <small className="error">{errors.mobile}</small>}
         </div>
-
+        <div className="handleCaptcha">
+{/* <ReCAPTCHA
+        sitekey="6LeXvDcrAAAAAAinLu9gf3tyT_D7wH88FTf9nkZP"
+        onChange={handleCaptcha}
+        size={captchaSize}
+      /> */}
+      </div>
         <button
           onClick={handleClick}
           type="submit"
@@ -261,5 +275,6 @@ const Input = ({handleevent}) => {
     </div>
   );
 };
+
 
 export default Input;
