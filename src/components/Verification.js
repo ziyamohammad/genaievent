@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -6,42 +7,75 @@ const Verification = ({useremail}) => {
   const [otp, setOtp] = useState(Array(4).fill(""));
 
   const handleChange = (value, index) => {
-    if (/^[0-9]?$/.test(value)) { 
-      const newOtp = [...otp];
-      newOtp[index] = value;
-      setOtp(newOtp);
+    if (/^[A-Za-z0-9]?$/.test(value)) { 
+        const newOtp = [...otp];
+        newOtp[index] = value.toUpperCase(); // optional: force uppercase
+        setOtp(newOtp);
+
 
      
-      if (value && index < 3) {
-        document.getElementById(`otp-input-${index + 1}`).focus();
-      }
+       if (value && index < 3) {
+          document.getElementById(`otp-input-${index + 1}`).focus();
+        }
     }
   };
 
-  const handleSubmit = () => {
-    const enteredOtp = otp.join("");
-    const correctOtp = "1234"; 
-    if (enteredOtp === correctOtp) {
+  const handleSubmit = async() => {
+    try {
+      const enteredOtp = otp.join("");
+      console.log(enteredOtp)
+      const response = await axios.post("http://localhost:5054/api/v1/student/verify",{otp:enteredOtp},{withCredentials:true})
+      console.log(response)
       toast.success("OTP Verified Successfully!", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: true,
+        });
+        setOtp(new Array(4).fill(""));
+    } catch (error) {
+      console.log("error");
+         toast.error("Invalid OTP. Please try again.", {
         position: "top-right",
         autoClose: 3000,
         hideProgressBar: true,
       });
-    } else {
-      toast.error("Invalid OTP. Please try again.", {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: true,
-      });
+
     }
+    // const enteredOtp = otp.join("");
+    // const correctOtp = "1234"; 
+    // if (enteredOtp === correctOtp) {
+    //   toast.success("OTP Verified Successfully!", {
+    //     position: "top-right",
+    //     autoClose: 3000,
+    //     hideProgressBar: true,
+    //   });
+    // } else {
+    //   toast.error("Invalid OTP. Please try again.", {
+    //     position: "top-right",
+    //     autoClose: 3000,
+    //     hideProgressBar: true,
+    //   });
+    // }
   };
 
-  const handleResend = () => {
-    toast.info("OTP Resent!", {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: true,
-    });
+  const handleResend = async() => {
+    try {
+       const response = await axios.get("http://localhost:5054/api/v1/student/resend-otp",{withCredentials:true})
+       console.log(response)
+      toast.info("OTP Resent!", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: true,
+      });
+    } catch (error) {
+      console.log("error");
+       toast.error("OTP not send", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: true,
+      });
+
+    }
     
   };
 

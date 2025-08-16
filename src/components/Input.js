@@ -17,12 +17,18 @@ const Input = ({handleevent}) => {
   const [email, setEmail] = useState('');
   const [mobile, setMobile] = useState('');
  const [captchaSize, setCaptchaSize] = useState('normal');
-  
-  const [formEntries, setFormEntries] = useState([]);
+ const[domain,setDomain]=useState("")
 const [captchaToken, setCaptchaToken] = useState('');
-     const handleCaptcha = (token) => {
+    
+const handleCaptcha = async(token) => {
     console.log("Captcha token:", token);
     setCaptchaToken(token);
+     try {
+    const res = await axios.post("http://localhost:5054/api/v1/student/verify-captcha", {recaptchaValue:token},{withCredentials:true});
+    console.log("Captcha verified:", res);
+  } catch (err) {
+    console.error("Captcha verification failed:", err.response?.data || err.message);
+  }
   };
   const regexPatterns = {
     name: /^[A-Za-z\s]{3,30}$/, 
@@ -76,7 +82,7 @@ const [captchaToken, setCaptchaToken] = useState('');
 
       if (
       !name || !branch || !univRoll || !gender || !scholarType ||
-      !studentNumber || !email || !mobile
+      !studentNumber || !email || !mobile ||!domain
     ) {
       toast.error("Please fill all the required fields.");
       return;
@@ -100,13 +106,12 @@ const [captchaToken, setCaptchaToken] = useState('');
         studentNumber:studentNumber,
         studentEmail:email,
         mobileNumber:mobile,
+        domain:domain
       };
     console.log("Form data:", formData);
-     
-
-      setFormEntries((prev) => [...prev, formData]);
-      const response = await axios.post(`https://registeration-form-90be.onrender.com/api/v1/student/register`,
-        formData
+      const response = await axios.post(`http://localhost:5054/api/v1/student/register`,
+        formData,
+        { withCredentials: true } 
       );
       console.log(response,response.data)
        toast.success("Form submitted successfully! 🎉");
@@ -122,6 +127,7 @@ const [captchaToken, setCaptchaToken] = useState('');
       setStudentNumber('');
       setEmail('');
       setMobile('');
+      setDomain('')
     }
   };
 
@@ -171,6 +177,26 @@ const [captchaToken, setCaptchaToken] = useState('');
 
 
           {errors.branch && <small className="error">{errors.branch}</small>}
+        </div>
+        <div className="input">
+          <label htmlFor="domain">Domain</label>
+          <select
+            type="text"
+            id="domain"
+            name="domain"
+            value={domain}
+            onChange={(e) => setDomain(e.target.value)}
+            onBlur={(e) => validateField("domain", e.target.value)}
+            required
+          >
+             <option value="" disabled>Select Domain</option>
+              <option value="Machine Learning">Machine Learning</option>
+              <option value="Web Developer">Web Developer</option>
+              <option value="Designer">Designer</option>
+            </select>
+
+
+          {errors.domain && <small className="error">{errors.domain}</small>}
         </div>
 
         <div className="input">
@@ -257,11 +283,11 @@ const [captchaToken, setCaptchaToken] = useState('');
           {errors.mobile && <small className="error">{errors.mobile}</small>}
         </div>
         <div className="handleCaptcha">
-{/* <ReCAPTCHA
-        sitekey="6LeXvDcrAAAAAAinLu9gf3tyT_D7wH88FTf9nkZP"
+<ReCAPTCHA
+        sitekey="6LfZSKgrAAAAAC4TqAYwouSIUC1ACsattTPVy22f"
         onChange={handleCaptcha}
         size={captchaSize}
-      /> */}
+      />
       </div>
         <button
           onClick={handleClick}
