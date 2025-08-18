@@ -24,7 +24,7 @@ const handleCaptcha = async(token) => {
     console.log("Captcha token:", token);
     setCaptchaToken(token);
      try {
-    const res = await axios.post("https://form-backend-5y0u.onrender.com/api/v1/student/validate", {recaptchaValue:token},{withCredentials:true});
+    const res = await axios.post("https://form-backend-q2a1.onrender.com/api/v1/student/validate", {recaptchaValue:token},{withCredentials:true});
     console.log("Captcha verified:", res);
   } catch (err) {
     console.error("Captcha verification failed:", err.response?.data || err.message);
@@ -109,7 +109,7 @@ const handleCaptcha = async(token) => {
         domain:domain
       };
     console.log("Form data:", formData);
-      const response = await axios.post(`https://form-backend-5y0u.onrender.com/api/v1/student/register`,
+      const response = await axios.post(`https://form-backend-q2a1.onrender.com/api/v1/student/register`,
         formData,
         { withCredentials: true } 
       );

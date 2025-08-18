@@ -24,7 +24,7 @@ const Verification = ({useremail}) => {
     try {
       const enteredOtp = otp.join("");
       console.log(enteredOtp)
-      const response = await axios.post("https://form-backend-5y0u.onrender.com/api/v1/student/verify",{otp:enteredOtp},{withCredentials:true})
+      const response = await axios.post("https://form-backend-q2a1.onrender.com/api/v1/student/verify",{otp:enteredOtp},{withCredentials:true})
       console.log(response)
       toast.success("OTP Verified Successfully!", {
           position: "top-right",
@@ -60,7 +60,7 @@ const Verification = ({useremail}) => {
 
   const handleResend = async() => {
     try {
-       const response = await axios.get("https://form-backend-5y0u.onrender.com/api/v1/student/resend-otp",{withCredentials:true})
+       const response = await axios.get("https://form-backend-q2a1.onrender.com/api/v1/student/resend-otp",{withCredentials:true})
        console.log(response)
       toast.info("OTP Resent!", {
         position: "top-right",
