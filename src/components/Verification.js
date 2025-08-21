@@ -20,47 +20,33 @@ const Verification = ({useremail}) => {
     }
   };
 
-  const handleSubmit = async() => {
-    try {
-      const enteredOtp = otp.join("");
-      console.log(enteredOtp)
-      const response = await axios.post("https://form-backend-q2a1.onrender.com/api/v1/student/verify",{otp:enteredOtp},{withCredentials:true})
-      console.log(response)
-      toast.success("OTP Verified Successfully!", {
-          position: "top-right",
-          autoClose: 3000,
-          hideProgressBar: true,
-        });
-        setOtp(new Array(4).fill(""));
-    } catch (error) {
-      console.log("error");
-         toast.error("Invalid OTP. Please try again.", {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: true,
-      });
+  const handleSubmit = async () => {
+  try {
+    const enteredOtp = otp.join("");
+    console.log("Sending body:", { otp: enteredOtp, email: useremail });
 
-    }
-    // const enteredOtp = otp.join("");
-    // const correctOtp = "1234"; 
-    // if (enteredOtp === correctOtp) {
-    //   toast.success("OTP Verified Successfully!", {
-    //     position: "top-right",
-    //     autoClose: 3000,
-    //     hideProgressBar: true,
-    //   });
-    // } else {
-    //   toast.error("Invalid OTP. Please try again.", {
-    //     position: "top-right",
-    //     autoClose: 3000,
-    //     hideProgressBar: true,
-    //   });
-    // }
-  };
+    const response = await axios.post(
+      "http://localhost:5054/api/v1/student/verify",
+      { otp: enteredOtp, email: useremail },
+      {
+        withCredentials: true,
+        headers: { "Content-Type": "application/json" }
+      }
+    );
+
+    console.log("Response:", response.data);
+    toast.success("OTP Verified Successfully!");
+    setOtp(new Array(4).fill(""));
+  } catch (error) {
+    console.error("Error Response:", error.response?.data || error.message);
+    toast.error("Invalid OTP. Please try again.");
+  }
+};
+    
 
   const handleResend = async() => {
     try {
-       const response = await axios.get("https://form-backend-q2a1.onrender.com/api/v1/student/resend-otp",{withCredentials:true})
+       const response = await axios.get("http://localhost:5054/api/v1/student/resend-otp",{withCredentials:true})
        console.log(response)
       toast.info("OTP Resent!", {
         position: "top-right",
