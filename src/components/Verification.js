@@ -26,7 +26,7 @@ const Verification = ({useremail}) => {
     console.log("Sending body:", { otp: enteredOtp, email: useremail });
 
     const response = await axios.post(
-      "http://localhost:5054/api/v1/student/verify",
+      "3.232.162.197/api/v1/student/verify",
       { otp: enteredOtp, email: useremail },
       {
         withCredentials: true,
@@ -46,7 +46,7 @@ const Verification = ({useremail}) => {
 
   const handleResend = async() => {
     try {
-       const response = await axios.get("http://localhost:5054/api/v1/student/resend-otp",{withCredentials:true})
+       const response = await axios.get("3.232.162.197/api/v1/student/resend-otp",{withCredentials:true})
        console.log(response)
       toast.info("OTP Resent!", {
         position: "top-right",
