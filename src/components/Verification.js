@@ -26,7 +26,7 @@ const Verification = ({useremail}) => {
     console.log("Sending body:", { otp: enteredOtp, email: useremail });
 
     const response = await axios.post(
-      "http://3.232.162.197:5054/api/v1/student/verify",
+      "https://3.232.162.197:5054/api/v1/student/verify",
       { otp: enteredOtp, email: useremail },
       {
         withCredentials: true,

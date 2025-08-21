@@ -24,7 +24,7 @@ const handleCaptcha = async(token) => {
     console.log("Captcha token:", token);
     setCaptchaToken(token);
      try {
-    const res = await axios.post("http://3.232.162.197:5054/api/v1/student/validate", {recaptchaValue:token},{withCredentials:true});
+    const res = await axios.post("https://3.232.162.197:5054/api/v1/student/validate", {recaptchaValue:token},{withCredentials:true});
     console.log("Captcha verified:", res);
   } catch (err) {
     console.error("Captcha verification failed:", err.response?.data || err.message);
@@ -109,7 +109,7 @@ const handleCaptcha = async(token) => {
         domain:domain
       };
     console.log("Form data:", formData);
-      const response = await axios.post(`http://3.232.162.197:5054/api/v1/student/register`,
+      const response = await axios.post(`https://3.232.162.197:5054/api/v1/student/register`,
         formData,
         { withCredentials: true } 
       );
