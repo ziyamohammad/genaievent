@@ -23,7 +23,7 @@ const [captchaToken, setCaptchaToken] = useState('');
 const handleCaptcha = async(token) => {
     setCaptchaToken(token);
      try {
-     await axios.post("https://api.mlcoe.live/api/v1/student/validate", {recaptchaValue:token},{withCredentials:true});
+     await axios.post("http://localhost:5000/api/v1/student/validate", {recaptchaValue:token},{withCredentials:true});
   } catch (err) {
     console.error("Captcha verification failed:", err.response?.data || err.message);
   }
@@ -106,7 +106,7 @@ const handleCaptcha = async(token) => {
         mobileNumber:mobile,
         domain:domain
       };
-       await axios.post(`https://api.mlcoe.live/api/v1/student/register`,
+       await axios.post(`http://localhost:5000/api/v1/student/register`,
         formData,
         { withCredentials: true } 
       );
