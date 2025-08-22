@@ -23,8 +23,8 @@ const Verification = ({useremail}) => {
   const handleSubmit = async () => {
   try {
     const enteredOtp = otp.join("");
-    const response = await axios.post(
-      "http://localhost:5054/api/v1/student/verify",
+    await axios.post(
+      "https://api.mlcoe.live/api/v1/student/verify",
       { otp: enteredOtp},
       {
         withCredentials: true,
@@ -42,7 +42,7 @@ const Verification = ({useremail}) => {
 
   const handleResend = async() => {
     try {
-       await axios.get("http://localhost:5054/api/v1/student/resend-otp",{withCredentials:true})
+       await axios.get("https://api.mlcoe.live/api/v1/student/resend-otp",{withCredentials:true})
       toast.info("OTP Resent!", {
         position: "top-right",
         autoClose: 3000,
