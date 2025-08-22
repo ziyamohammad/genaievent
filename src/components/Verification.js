@@ -23,18 +23,14 @@ const Verification = ({useremail}) => {
   const handleSubmit = async () => {
   try {
     const enteredOtp = otp.join("");
-    console.log("Sending body:", { otp: enteredOtp, email: useremail });
-
     const response = await axios.post(
-      "http://3.232.162.197/api/v1/student/verify",
+      "http://localhost:5054/api/v1/student/verify",
       { otp: enteredOtp},
       {
         withCredentials: true,
         headers: { "Content-Type": "application/json" }
       }
     );
-
-    console.log("Response:", response.data);
     toast.success("OTP Verified Successfully!");
     setOtp(new Array(4).fill(""));
   } catch (error) {
@@ -46,15 +42,14 @@ const Verification = ({useremail}) => {
 
   const handleResend = async() => {
     try {
-       const response = await axios.get("http://3.232.162.197/api/v1/student/resend-otp",{withCredentials:true})
-       console.log(response)
+       await axios.get("http://localhost:5054/api/v1/student/resend-otp",{withCredentials:true})
       toast.info("OTP Resent!", {
         position: "top-right",
         autoClose: 3000,
         hideProgressBar: true,
       });
     } catch (error) {
-      console.log("error");
+      console.log(error.message);
        toast.error("OTP not send", {
         position: "top-right",
         autoClose: 3000,

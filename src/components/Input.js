@@ -20,16 +20,14 @@ const Input = ({handleevent}) => {
  const[domain,setDomain]=useState("")
 const [captchaToken, setCaptchaToken] = useState('');
     
-// const handleCaptcha = async(token) => {
-//     console.log("Captcha token:", token);
-//     setCaptchaToken(token);
-//      try {
-//     const res = await axios.post("http://3.232.162.197/api/v1/student/validate", {recaptchaValue:token},{withCredentials:true});
-//     console.log("Captcha verified:", res);
-//   } catch (err) {
-//     console.error("Captcha verification failed:", err.response?.data || err.message);
-//   }
-//   };
+const handleCaptcha = async(token) => {
+    setCaptchaToken(token);
+     try {
+     await axios.post("http://localhost:5054/api/v1/student/validate", {recaptchaValue:token},{withCredentials:true});
+  } catch (err) {
+    console.error("Captcha verification failed:", err.response?.data || err.message);
+  }
+  };
   const regexPatterns = {
     name: /^[A-Za-z\s]{3,30}$/, 
     branch: /^[A-Za-z\s]+$/,
@@ -108,17 +106,12 @@ const [captchaToken, setCaptchaToken] = useState('');
         mobileNumber:mobile,
         domain:domain
       };
-    console.log("Form data:", formData);
-      const response = await axios.post(`http://3.232.162.197/api/v1/student/register`,
+       await axios.post(`http://localhost:5054/api/v1/student/register`,
         formData,
         { withCredentials: true } 
       );
-      console.log(response,response.data)
        toast.success("Form submitted successfully! 🎉");
        navigate("/Verify");
-       
-
-      
       setName('');
       setBranch('');
       setUnivRoll('');
