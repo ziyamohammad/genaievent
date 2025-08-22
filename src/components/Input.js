@@ -20,16 +20,16 @@ const Input = ({handleevent}) => {
  const[domain,setDomain]=useState("")
 const [captchaToken, setCaptchaToken] = useState('');
     
-const handleCaptcha = async(token) => {
-    console.log("Captcha token:", token);
-    setCaptchaToken(token);
-     try {
-    const res = await axios.post("https://3.232.162.197:5054/api/v1/student/validate", {recaptchaValue:token},{withCredentials:true});
-    console.log("Captcha verified:", res);
-  } catch (err) {
-    console.error("Captcha verification failed:", err.response?.data || err.message);
-  }
-  };
+// const handleCaptcha = async(token) => {
+//     console.log("Captcha token:", token);
+//     setCaptchaToken(token);
+//      try {
+//     const res = await axios.post("http://3.232.162.197/api/v1/student/validate", {recaptchaValue:token},{withCredentials:true});
+//     console.log("Captcha verified:", res);
+//   } catch (err) {
+//     console.error("Captcha verification failed:", err.response?.data || err.message);
+//   }
+//   };
   const regexPatterns = {
     name: /^[A-Za-z\s]{3,30}$/, 
     branch: /^[A-Za-z\s]+$/,
@@ -109,7 +109,7 @@ const handleCaptcha = async(token) => {
         domain:domain
       };
     console.log("Form data:", formData);
-      const response = await axios.post(`https://3.232.162.197:5054/api/v1/student/register`,
+      const response = await axios.post(`http://3.232.162.197/api/v1/student/register`,
         formData,
         { withCredentials: true } 
       );
@@ -282,13 +282,7 @@ const handleCaptcha = async(token) => {
           />
           {errors.mobile && <small className="error">{errors.mobile}</small>}
         </div>
-        <div className="handleCaptcha">
-<ReCAPTCHA
-        sitekey="6LfZSKgrAAAAAC4TqAYwouSIUC1ACsattTPVy22f"
-        onChange={handleCaptcha}
-        size={captchaSize}
-      />
-      </div>
+        
        
         <button
           onClick={handleClick}
