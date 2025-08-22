@@ -24,11 +24,11 @@ const Verification = ({useremail}) => {
   try {
     const enteredOtp = otp.join("");
     await axios.post(
-      "http://localhost:5000/api/v1/student/verify",
+      "http://98.85.95.189:5000/api/v1/student/verify",
       { otp: enteredOtp},
       {
         withCredentials: true,
-        headers: { "Content-Type": "application/json" }
+  
       }
     );
     toast.success("OTP Verified Successfully!");
@@ -42,7 +42,7 @@ const Verification = ({useremail}) => {
 
   const handleResend = async() => {
     try {
-       await axios.get("http://localhost:5000/api/v1/student/resend-otp",{withCredentials:true})
+       await axios.get("http://98.85.95.189:5000/api/v1/student/resend-otp",{withCredentials:true})
       toast.info("OTP Resent!", {
         position: "top-right",
         autoClose: 3000,

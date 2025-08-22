@@ -20,14 +20,14 @@ const Input = ({handleevent}) => {
  const[domain,setDomain]=useState("")
 const [captchaToken, setCaptchaToken] = useState('');
     
-const handleCaptcha = async(token) => {
-    setCaptchaToken(token);
-     try {
-     await axios.post("http://localhost:5000/api/v1/student/validate", {recaptchaValue:token},{withCredentials:true});
-  } catch (err) {
-    console.error("Captcha verification failed:", err.response?.data || err.message);
-  }
-  };
+// const handleCaptcha = async(token) => {
+//     setCaptchaToken(token);
+//      try {
+//      await axios.post("http://98.85.95.189:5000/api/v1/student/validate", {recaptchaValue:token},{withCredentials:true});
+//   } catch (err) {
+//     console.error("Captcha verification failed:", err.response?.data || err.message);
+//   }
+//   };
   const regexPatterns = {
     name: /^[A-Za-z\s]{3,30}$/, 
     branch: /^[A-Za-z\s]+$/,
@@ -106,7 +106,7 @@ const handleCaptcha = async(token) => {
         mobileNumber:mobile,
         domain:domain
       };
-       await axios.post(`http://localhost:5000/api/v1/student/register`,
+       await axios.post(`http://98.85.95.189:5000/api/v1/student/register`,
         formData,
         { withCredentials: true } 
       );
@@ -275,13 +275,7 @@ const handleCaptcha = async(token) => {
           />
           {errors.mobile && <small className="error">{errors.mobile}</small>}
         </div>
-        <div className="handleCaptcha">
-<ReCAPTCHA
-        sitekey="6LfZSKgrAAAAAC4TqAYwouSIUC1ACsattTPVy22f"
-        onChange={handleCaptcha}
-        size={captchaSize}
-      />
-      </div>
+       
         
        
         <button
