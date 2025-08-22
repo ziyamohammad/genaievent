@@ -275,6 +275,13 @@ const handleCaptcha = async(token) => {
           />
           {errors.mobile && <small className="error">{errors.mobile}</small>}
         </div>
+        <div className="handleCaptcha">
+<ReCAPTCHA
+        sitekey="6LfZSKgrAAAAAC4TqAYwouSIUC1ACsattTPVy22f"
+        onChange={handleCaptcha}
+        size={captchaSize}
+      />
+      </div>
         
        
         <button
